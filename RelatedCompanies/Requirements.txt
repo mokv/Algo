@@ -1,0 +1,14 @@
+﻿You have a list of companies and information which companies are related, i.e. whether a company has ownership in another (like, for example, Strypes is a mother company of Kodar, ICT is a mother company of Strypes).  The links between companies can also be cyclic: A -> B -> C -> A.
+
+You need to write an algorithm which determines if any two companies are related directly or indirectly (via one or N other companies).
+
+Input: 
+1.	A list of companies
+2.	A list of: parent company, daughter company
+3.	A list of pairs of companies to check.
+
+Output: 
+1.	For every pair of point 3, yes or no
+
+Write both a recursive and an iterative algorithm.
+
