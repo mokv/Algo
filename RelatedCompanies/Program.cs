@@ -21,9 +21,8 @@ namespace RelatedCompanies
             IEnumerable<Company> companies = SeedData();
             Company selectedCompany = companies.First(c => c.Name == "B");
             Company searchedCompany = companies.First(c => c.Name == "E");
-            var visited = new HashSet<string>();
-            bool result = HaveReference(selectedCompany, searchedCompany, visited);
-            bool resultRecursive = HaveReferenceRecursive(selectedCompany, searchedCompany, visited, new Queue<Company>());
+            bool result = HaveReference(selectedCompany, searchedCompany);
+            bool resultRecursive = HaveReferenceRecursive(selectedCompany, searchedCompany, new HashSet<string>(), new Queue<Company>());
             Console.WriteLine(result ? "Yes" : "No");
             Console.WriteLine(resultRecursive ? "Yes" : "No");
         }
@@ -49,8 +48,9 @@ namespace RelatedCompanies
             return false;
         }
 
-        static bool HaveReference(Company startCompany, Company searchedCompany, HashSet<string> visited)
+        static bool HaveReference(Company startCompany, Company searchedCompany)
         {
+            var visited = new HashSet<string>();
             var queue = new Queue<Company>();
             queue.Enqueue(startCompany);
             while (queue.Any())
