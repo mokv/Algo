@@ -86,7 +86,7 @@ namespace RelatedCompanies
             return companies;
         }
 
-        static void ConnectCompanies(IEnumerable<Company> companies)
+        static void ReadCompaniesConnection(IEnumerable<Company> companies)
         {
             string input;
             do
@@ -111,16 +111,16 @@ namespace RelatedCompanies
 
             var companies = new List<Company>() { cA, cB, cC, cD, cE };
 
-            cC.Related.Add(cB); // B -> C
+            cC.Related.Add(cB); // B <-> C
             cB.Related.Add(cC);
 
-            cB.Related.Add(cA); // A -> B
+            cB.Related.Add(cA); // A <-> B
             cA.Related.Add(cB);
 
-            cA.Related.Add(cC); // C -> A
+            cA.Related.Add(cC); // C <-> A
             cC.Related.Add(cA);
 
-            cE.Related.Add(cA); // A -> E
+            cE.Related.Add(cA); // A <-> E
             cA.Related.Add(cE);
             
             return companies;
